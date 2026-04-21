@@ -1,0 +1,42 @@
+// Model A - Baseline CNN with Shapes
+digraph {
+	rankdir=LR size="20,8"
+	node [fontname=Helvetica shape=box style="rounded,filled"]
+	A [label="Input
+28 × 28 × 1" fillcolor=lightblue]
+	B [label="Rescaling
+Output: 28 × 28 × 1" fillcolor=aliceblue]
+	C [label="Data Augmentation
+Rotation + Zoom + Translation
+Output: 28 × 28 × 1" fillcolor=lightyellow]
+	D [label="Conv2D
+32 filters, 3×3, ReLU
+Output: 28 × 28 × 32" fillcolor=lightgreen]
+	E [label="MaxPooling2D
+2×2
+Output: 14 × 14 × 32" fillcolor=palegreen]
+	F [label="Conv2D
+64 filters, 3×3, ReLU
+Output: 14 × 14 × 64" fillcolor=lightgreen]
+	G [label="MaxPooling2D
+2×2
+Output: 7 × 7 × 64" fillcolor=palegreen]
+	H [label="Flatten
+Output: 3136" fillcolor=khaki]
+	I [label="Dense
+128 units, ReLU" fillcolor=orange]
+	J [label="Dropout
+rate = 0.5" fillcolor=moccasin]
+	K [label="Dense Output
+24 units, Softmax" fillcolor=salmon]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G
+	G -> H
+	H -> I
+	I -> J
+	J -> K
+}
